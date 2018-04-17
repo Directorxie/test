@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/Department.css"/>
+		<link rel="stylesheet" type="text/css" href="css/simpleAlert.css"/>
+		<script src="js/jquery-1.11.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/simpleAlert.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				var classclone = $(".classcontent").clone();
+				var i = 0;
+				//console.log(classclone);
+				for(i; i<=3; i++)
+				{
+					classclone = $(".classcontent").clone();
+					$(".classlist").append(classclone);
+				}
+				$("#submit").click(function(){
+					var sub = simpleAlert({
+						"content":"成功选课",
+                   		"buttons":{
+                        	"确定":function () {
+                            sub.close();
+                        	}
+                    	}
+					});
+				});
+				$(".classlist tr:nth-child(even)").addClass("treven");
+			});
+		</script>
+	</head>
+	<body>
+		<div class="title">
+			院系选课
+		</div>
+		<table class="classlist" border="1" cellspacing="0" cellpadding="10">
+			<tr>
+				<th>课程代码</th>
+				<th>课程名称</th>
+				<th>课程老师</th>
+				<th>课程教室</th>
+				<th>已选人数</th>
+				<th>剩余人数</th>
+				<th>是否选中</th>
+			</tr>
+			<tr class="classcontent">
+				<td>10011</td>
+				<td>高等数学</td>
+				<td>某某老师</td>
+				<td>南区10栋711</td>
+				<td>150</td>
+				<td>50</td>
+				<td>
+					<input type="checkbox" name="checkclass" id="checkclass" value="" />
+				</td>
+			</tr>
+		</table>
+		<input type="submit" id="submit" name="" />
+	</body>
+</html>
